@@ -1,10 +1,10 @@
 name: erc721m-envio-indexer-kent
-rollback_on_reorg: false
 field_selection:
   transaction_fields:
     - "hash"
     - "from"
     - "transactionIndex"
+rollback_on_reorg: false
 networks:
   - id: 11155111
     start_block: 0
