@@ -1,4 +1,4 @@
-name: erc721m-envio-indexer-kent
+name: erc721m-envio-indexer-kent2
 rollback_on_reorg: false
 field_selection:
   transaction_fields:
