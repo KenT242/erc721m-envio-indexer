@@ -1,43 +1,44 @@
 name: erc721m-envio-indexer-kent
+field_selection:
+  transaction_fields:
+    - "hash"
+    - "from"
+    - "transactionIndex"
 networks:
-- id: 11155111
-  start_block: 0
-  end_block: null
-  contracts:
-  - name: Factory
-    address: 0x6E1dF30Ff7D9d43F4068Af4679239CD41d7E9C02
-    handler: src/factory/handlers.ts
-    events:
-    - event: Deployed(address indexed deployer, address indexed collection, address indexed aligned, bytes32 salt)
-      isAsync: true
-    - event: OwnershipTransferred(address indexed oldOwner, address indexed newOwner)
-  - name: ERC721M
-    address: 0xeA9aF8dBDdE2A8d3515C3B4E446eCd41afEdB1C6
-    handler: src/erc721m/handlers.ts
-    events:
-    - event: AlignmentUpdate(uint16 indexed minAllocation, uint16 indexed maxAllocation)
-    - event: Approval(address indexed owner, address indexed account, uint256 indexed id)
-    - event: ApprovalForAll(address indexed owner, address indexed operator, bool isApproved)
-    - event: BatchMetadataUpdate(uint256 indexed fromTokenId, uint256 indexed toTokenId)
-      isAsync: true
-    - event: BlacklistUpdate(address[] indexed blacklistedAssets, bool indexed status)
-    - event: ContractMetadataUpdate(string indexed uri)
-      isAsync: true
-    - event: CustomMintConfigured(bytes32 indexed merkleRoot, uint8 indexed listId, uint40 indexed amount)
-    - event: CustomMintDeleted(uint8 indexed listId)
-    - event: CustomMintDisabled(uint8 indexed listId)
-    - event: CustomMintReenabled(uint8 indexed listId, uint40 indexed claimable)
-    - event: CustomMintRepriced(uint8 indexed listId, uint80 indexed price)
-    - event: MintOpen()
-    - event: OwnershipTransferred(address indexed oldOwner, address indexed newOwner)
-    - event: PriceUpdate(uint80 indexed price)
-    - event: ReferralFeePaid(address indexed referral, uint256 indexed amount)
-    - event: ReferralFeeUpdate(uint16 indexed referralFee)
-    - event: RoyaltyDisabled()
-    - event: RoyaltyUpdate(uint256 indexed tokenId, address indexed receiver, uint96 indexed royaltyFee)
-    - event: SupplyUpdate(uint40 indexed supply)
-    - event: TokenLocked(uint256 indexed tokenId, address indexed approvedContract)
-    - event: TokenUnlocked(uint256 indexed tokenId, address indexed approvedContract)
-    - event: Transfer(address indexed from, address indexed to, uint256 indexed id)
-      isAsync: true
-    - event: URILock()
+  - id: 11155111
+    start_block: 0
+    end_block: null
+    contracts:
+      - name: Factory
+        address: 0x6E1dF30Ff7D9d43F4068Af4679239CD41d7E9C02
+        handler: src/factory/handlers.ts
+        events:
+          - event: Deployed(address indexed deployer, address indexed collection, address indexed aligned, bytes32 salt)
+          - event: OwnershipTransferred(address indexed oldOwner, address indexed newOwner)
+      - name: ERC721M
+        address: 0xeA9aF8dBDdE2A8d3515C3B4E446eCd41afEdB1C6
+        handler: src/erc721m/handlers.ts
+        events:
+          - event: AlignmentUpdate(uint16 indexed minAllocation, uint16 indexed maxAllocation)
+          - event: Approval(address indexed owner, address indexed account, uint256 indexed id)
+          - event: ApprovalForAll(address indexed owner, address indexed operator, bool isApproved)
+          - event: BatchMetadataUpdate(uint256 indexed fromTokenId, uint256 indexed toTokenId)
+          - event: BlacklistUpdate(address[] indexed blacklistedAssets, bool indexed status)
+          - event: ContractMetadataUpdate(string indexed uri)
+          - event: CustomMintConfigured(bytes32 indexed merkleRoot, uint8 indexed listId, uint40 indexed amount)
+          - event: CustomMintDeleted(uint8 indexed listId)
+          - event: CustomMintDisabled(uint8 indexed listId)
+          - event: CustomMintReenabled(uint8 indexed listId, uint40 indexed claimable)
+          - event: CustomMintRepriced(uint8 indexed listId, uint80 indexed price)
+          - event: MintOpen()
+          - event: OwnershipTransferred(address indexed oldOwner, address indexed newOwner)
+          - event: PriceUpdate(uint80 indexed price)
+          - event: ReferralFeePaid(address indexed referral, uint256 indexed amount)
+          - event: ReferralFeeUpdate(uint16 indexed referralFee)
+          - event: RoyaltyDisabled()
+          - event: RoyaltyUpdate(uint256 indexed tokenId, address indexed receiver, uint96 indexed royaltyFee)
+          - event: SupplyUpdate(uint40 indexed supply)
+          - event: TokenLocked(uint256 indexed tokenId, address indexed approvedContract)
+          - event: TokenUnlocked(uint256 indexed tokenId, address indexed approvedContract)
+          - event: Transfer(address indexed from, address indexed to, uint256 indexed id)
+          - event: URILock()
