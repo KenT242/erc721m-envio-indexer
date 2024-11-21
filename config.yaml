@@ -1,4 +1,5 @@
 name: erc721m-envio-indexer-kent
+rollback_on_reorg: false
 field_selection:
   transaction_fields:
     - "hash"
