@@ -1,9 +1,9 @@
 name: erc721m-envio-indexer
+rollback_on_reorg: false
 networks:
 - id: 11155111
   start_block: 0
   end_block: null
-  rollback_on_reorg: false
   contracts:
   - name: Factory
     address:
