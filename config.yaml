@@ -1,4 +1,4 @@
-name: erc721m-envio-indexer
+name: erc721m-envio-indexer-kent
 rollback_on_reorg: false
 networks:
 - id: 11155111
