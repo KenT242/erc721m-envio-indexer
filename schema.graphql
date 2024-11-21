@@ -1,0 +1,411 @@
+type FactorySummary {
+  id: ID!
+  chain: BigInt!
+  address: String!
+  """
+  id: chain+address
+  """
+  Deployed: [CollectionDeployed!]! @derivedFrom(field: "eventsSummary")
+  DeployedCount: BigInt!
+  OwnershipTransferred: [FactoryOwnershipTransferred!]!
+    @derivedFrom(field: "eventsSummary")
+  OwnershipTransferredCount: BigInt!
+  updatedAt: BigInt!
+  updatedBlock: BigInt!
+}
+
+type NftSummary {
+  id: ID!
+  chain: BigInt!
+  """
+  id: chain+address
+  """
+  AlignmentUpdate: [AlignmentUpdate!]! @derivedFrom(field: "eventsSummary")
+  AlignmentUpdateCount: BigInt!
+  Approval: [Approval!]! @derivedFrom(field: "eventsSummary")
+  ApprovalCount: BigInt!
+  ApprovalForAll: [ApprovalForAll!]! @derivedFrom(field: "eventsSummary")
+  ApprovalForAllCount: BigInt!
+  BatchMetadataUpdate: [BatchMetadataUpdate!]!
+    @derivedFrom(field: "eventsSummary")
+  BatchMetadataUpdateCount: BigInt!
+  BlacklistUpdate: [BlacklistUpdate!]! @derivedFrom(field: "eventsSummary")
+  BlacklistUpdateCount: BigInt!
+  ContractMetadataUpdate: [ContractMetadataUpdate!]!
+    @derivedFrom(field: "eventsSummary")
+  ContractMetadataUpdateCount: BigInt!
+  CustomMintConfigured: [CustomMintConfigured!]!
+    @derivedFrom(field: "eventsSummary")
+  CustomMintConfiguredCount: BigInt!
+  CustomMintDeleted: [CustomMintDeleted!]! @derivedFrom(field: "eventsSummary")
+  CustomMintDeletedCount: BigInt!
+  CustomMintDisabled: [CustomMintDisabled!]!
+    @derivedFrom(field: "eventsSummary")
+  CustomMintDisabledCount: BigInt!
+  CustomMintReenabled: [CustomMintReenabled!]!
+    @derivedFrom(field: "eventsSummary")
+  CustomMintReenabledCount: BigInt!
+  CustomMintRepriced: [CustomMintRepriced!]!
+    @derivedFrom(field: "eventsSummary")
+  CustomMintRepricedCount: BigInt!
+  MintOpen: [MintOpen!]! @derivedFrom(field: "eventsSummary")
+  MintOpenCount: BigInt!
+  OwnershipTransferred: [CollectionOwnershipTransferred!]!
+    @derivedFrom(field: "eventsSummary")
+  OwnershipTransferredCount: BigInt!
+  PriceUpdate: [PriceUpdate!]! @derivedFrom(field: "eventsSummary")
+  PriceUpdateCount: BigInt!
+  ReferralFeePaid: [ReferralFeePaid!]! @derivedFrom(field: "eventsSummary")
+  ReferralFeePaidCount: BigInt!
+  ReferralFeeUpdate: [ReferralFeeUpdate!]! @derivedFrom(field: "eventsSummary")
+  ReferralFeeUpdateCount: BigInt!
+  RoyaltyDisabled: [RoyaltyDisabled!]! @derivedFrom(field: "eventsSummary")
+  RoyaltyDisabledCount: BigInt!
+  RoyaltyUpdate: [RoyaltyUpdate!]! @derivedFrom(field: "eventsSummary")
+  RoyaltyUpdateCount: BigInt!
+  SupplyUpdate: [SupplyUpdate!]! @derivedFrom(field: "eventsSummary")
+  SupplyUpdateCount: BigInt!
+  Transfer: [Transfer!]! @derivedFrom(field: "eventsSummary")
+  TransferCount: BigInt!
+  URILock: [URILock!]! @derivedFrom(field: "eventsSummary")
+  URILockCount: BigInt!
+  updatedAt: BigInt!
+  updatedBlock: BigInt!
+}
+
+type AlignmentUpdate {
+  id: ID!
+  chain: BigInt!
+  minAllocation: BigInt!
+  maxAllocation: BigInt!
+  eventsSummary: String!
+  createdAt: BigInt!
+}
+
+type Approval {
+  id: ID!
+  chain: BigInt!
+  owner: String!
+  account: String!
+  event_id: BigInt!
+  eventsSummary: String!
+  createdAt: BigInt!
+}
+
+type ApprovalForAll {
+  id: ID!
+  chain: BigInt!
+  owner: String!
+  operator: String!
+  isApproved: Boolean!
+  eventsSummary: String!
+  createdAt: BigInt!
+}
+
+type BatchMetadataUpdate {
+  id: ID!
+  chain: BigInt!
+  fromTokenId: BigInt!
+  toTokenId: BigInt!
+  eventsSummary: String!
+  createdAt: BigInt!
+}
+
+type BlacklistUpdate {
+  id: ID!
+  chain: BigInt!
+  blacklistedAssets: [String!]!
+  status: Boolean!
+  eventsSummary: String!
+  createdAt: BigInt!
+}
+
+type ContractMetadataUpdate {
+  id: ID!
+  chain: BigInt!
+  uri: String!
+  eventsSummary: String!
+  createdAt: BigInt!
+}
+
+type CustomMintConfigured {
+  id: ID!
+  chain: BigInt!
+  merkleRoot: String!
+  listId: BigInt!
+  amount: BigInt!
+  price: BigInt!
+  eventsSummary: String!
+  createdAt: BigInt!
+  createdBlock: BigInt!
+}
+
+type CustomMintDeleted {
+  id: ID!
+  chain: BigInt!
+  listId: BigInt!
+  eventsSummary: String!
+  createdAt: BigInt!
+  createdBlock: BigInt!
+}
+
+type CustomMintDisabled {
+  id: ID!
+  chain: BigInt!
+  listId: BigInt!
+  eventsSummary: String!
+  createdAt: BigInt!
+  createdBlock: BigInt!
+}
+
+type CustomMintReenabled {
+  id: ID!
+  chain: BigInt!
+  listId: BigInt!
+  eventsSummary: String!
+  createdAt: BigInt!
+  createdBlock: BigInt!
+}
+
+type CustomMintRepriced {
+  id: ID!
+  chain: BigInt!
+  listId: BigInt!
+  price: BigInt!
+  eventsSummary: String!
+  createdAt: BigInt!
+  createdBlock: BigInt!
+}
+
+type MintOpen {
+  id: ID!
+  chain: BigInt!
+  eventsSummary: String!
+  createdAt: BigInt!
+}
+
+type CollectionOwnershipTransferred {
+  id: ID!
+  chain: BigInt!
+  oldOwner: String!
+  newOwner: String!
+  eventsSummary: String!
+  createdAt: BigInt!
+}
+
+type PriceUpdate {
+  id: ID!
+  chain: BigInt!
+  price: BigInt!
+  eventsSummary: String!
+  createdAt: BigInt!
+}
+
+type ReferralFeePaid {
+  id: ID!
+  chain: BigInt!
+  referral: String!
+  amount: BigInt!
+  eventsSummary: String!
+  createdAt: BigInt!
+}
+
+type ReferralFeeUpdate {
+  id: ID!
+  chain: BigInt!
+  referralFee: BigInt!
+  eventsSummary: String!
+  createdAt: BigInt!
+}
+
+type RoyaltyUpdate {
+  id: ID!
+  chain: BigInt!
+  tokenId: BigInt!
+  receiver: String!
+  royaltyFee: BigInt!
+  eventsSummary: String!
+  createdAt: BigInt!
+}
+
+type RoyaltyDisabled {
+  id: ID!
+  chain: BigInt!
+  eventsSummary: String!
+  createdAt: BigInt!
+}
+
+type SupplyUpdate {
+  id: ID!
+  chain: BigInt!
+  supply: BigInt!
+  eventsSummary: String!
+  createdAt: BigInt!
+}
+
+type Transfer {
+  id: ID!
+  chain: BigInt!
+  collection: Collection!
+  token: Token!
+  caller: User!
+  from: User!
+  to: User!
+  eventsSummary: String!
+  createdBlock: BigInt!
+  createdAt: BigInt!
+}
+
+type URILock {
+  id: ID!
+  chain: BigInt!
+  eventsSummary: String!
+  createdAt: BigInt!
+}
+
+"""
+Entity types
+"""
+type User {
+  id: ID!
+  collectionsCreated: [Collection!]! @derivedFrom(field: "creator")
+  collectionsOwned: [Collection!]! @derivedFrom(field: "owner")
+  tokensMinted: [Token!]! @derivedFrom(field: "minter")
+  tokensOwned: [Token!]! @derivedFrom(field: "owner")
+  encounteredAt: BigInt!
+  updatedAt: BigInt!
+}
+
+type Factory {
+  id: ID!
+  chain: BigInt!
+  address: String!
+  creator: User!
+  owner: User!
+  deployed: [Collection!]! @derivedFrom(field: "factory")
+  createdAt: BigInt!
+  createdBlock: BigInt!
+  updatedAt: BigInt!
+  updatedBlock: BigInt!
+}
+
+type ContractMetadata {
+  id: ID!
+  raw: String
+  name: String
+  description: String
+  image: String
+  banner_image: String
+  featured_image: String
+  external_link: String
+  collaborators: [String!]
+  createdAt: BigInt
+  createdBlock: BigInt
+  encounteredAt: BigInt
+  encounteredBlock: BigInt
+  updatedAt: BigInt
+  updatedBlock: BigInt
+}
+
+type TokenMetadata {
+  id: ID!
+  raw: String
+  name: String
+  description: String
+  image: String
+  external_link: String
+  attributes: String
+  createdAt: BigInt
+  createdBlock: BigInt
+  encounteredAt: BigInt
+  encounteredBlock: BigInt
+  updatedAt: BigInt
+  updatedBlock: BigInt
+}
+
+type Collection {
+  id: ID!
+  chain: BigInt!
+  address: String!
+  creator: User
+  owner: User
+  factory: Factory
+  parent: Collection
+  alignment: BigInt
+  children: [Collection!]! @derivedFrom(field: "parent")
+  isErc721m: Boolean!
+  isParent: Boolean!
+  name: String
+  symbol: String
+  maxSupply: BigInt
+  metadataUri: String
+  metadata: ContractMetadata
+  tokens: [Token!]! @derivedFrom(field: "collection")
+  lists: [Token!]! @derivedFrom(field: "collection")
+  createdBlock: BigInt
+  createdAt: BigInt
+  encounteredAt: BigInt
+  encounteredBlock: BigInt
+  updatedBlock: BigInt
+  updatedAt: BigInt
+}
+
+type Token {
+  id: ID!
+  chain: BigInt!
+  collection: Collection!
+  token_id: BigInt!
+  minter: User!
+  owner: User!
+  metadataUri: String
+  metadata: TokenMetadata
+  transfers: [Transfer!]! @derivedFrom(field: "token")
+  createdAt: BigInt!
+  createdBlock: BigInt!
+  updatedAt: BigInt!
+  updatedBlock: BigInt!
+}
+
+type List {
+  id: ID!
+  chain: BigInt!
+  collection: Collection!
+  listId: BigInt!
+  merkleRoot: String!
+  price: BigInt!
+  supply: BigInt!
+  claimable: BigInt!
+  paused: Boolean!
+  deleted: Boolean!
+  createdAt: BigInt!
+  createdBlock: BigInt!
+  updatedAt: BigInt!
+  updatedBlock: BigInt!
+}
+
+"""
+FACTORY TRANSACTIONS
+"""
+type CollectionDeployed {
+  id: ID!
+  chain: BigInt!
+  factory: Factory!
+  deployer: String!
+  collection: String!
+  aligned: String!
+  salt: String!
+  eventsSummary: String!
+  createdBlock: BigInt!
+  createdAt: BigInt!
+}
+
+type FactoryOwnershipTransferred {
+  id: ID!
+  chain: BigInt!
+  factory: Factory!
+  oldOwner: String!
+  newOwner: String!
+  eventsSummary: String!
+  createdBlock: BigInt!
+  createdAt: BigInt!
+}
