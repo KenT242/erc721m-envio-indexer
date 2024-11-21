@@ -5,16 +5,14 @@ networks:
   end_block: null
   contracts:
   - name: Factory
-    address:
-    - 0x6E1dF30Ff7D9d43F4068Af4679239CD41d7E9C02
+    address: 0x6E1dF30Ff7D9d43F4068Af4679239CD41d7E9C02
     handler: src/factory/handlers.ts
     events:
     - event: Deployed(address indexed deployer, address indexed collection, address indexed aligned, bytes32 salt)
       isAsync: true
     - event: OwnershipTransferred(address indexed oldOwner, address indexed newOwner)
   - name: ERC721M
-    address: 
-    - 0xeA9aF8dBDdE2A8d3515C3B4E446eCd41afEdB1C6
+    address: 0xeA9aF8dBDdE2A8d3515C3B4E446eCd41afEdB1C6
     handler: src/erc721m/handlers.ts
     events:
     - event: AlignmentUpdate(uint16 indexed minAllocation, uint16 indexed maxAllocation)
